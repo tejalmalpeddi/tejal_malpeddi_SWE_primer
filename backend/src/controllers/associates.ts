@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { supabase } from "../app";
 
-const checkUserExists = async (userId: number) => {
+export const checkUserExists = async (userId: number) => {
     const { data, error } = await supabase
         .from("users")
         .select("*")
