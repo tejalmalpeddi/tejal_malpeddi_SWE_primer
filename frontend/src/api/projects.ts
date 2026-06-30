@@ -42,7 +42,11 @@ export const createProject = async (project: Omit<Project, "id">): Promise<Proje
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(project),
+        body: JSON.stringify({
+            name: project.project_name,
+            managerId: project.project_manager_id,
+            description: project.project_description,
+        }),
     });
     if (!response.ok) {
         throw new Error("Failed to create project");
